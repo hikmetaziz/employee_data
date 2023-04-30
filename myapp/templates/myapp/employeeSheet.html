@@ -1,0 +1,40 @@
+<!employeeSheet.html>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Employee</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}" />
+</head>
+<body>
+    <form method="POST" action="{% url 'createEmployee' %}">
+        {% csrf_token %}
+        <h1>Create Employee</h1>
+        <table>
+            <tr>
+                <td><label for="name">Name:</label></td>
+                <td><input type="text" id="name" name="name" placeholder="Insert employee name"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email:</label></td>
+                <td><input type="email" id="email" name="email" placeholder="Insert employee email"></td>
+            </tr>
+            <tr>
+                <td><label for="job-title">Job Title:</label></td>
+                <td><input type="text" id="job-title" name="job" placeholder="Insert employee job title"></td>
+            </tr>
+            <tr>
+                <td><label for="salary">Salary:</label></td>
+                <td><input type="number" id="salary" name="salary" placeholder="Insert employee salary"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Create Employee" style="background-color: blue; color: white"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

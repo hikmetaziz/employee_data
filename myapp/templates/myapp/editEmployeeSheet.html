@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Employee</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'myapp/style.css' %}" />
+</head>
+<body>
+    <form method="POST" action="{% url 'editEmployee' %}">
+        {% csrf_token %}
+        <h1>Edit Employee Info</h1>
+        <div class="input-container">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" value="{{ employee.id }}" readonly>
+        </div>
+        <div class="input-container">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ employee.name }}" placeholder="Insert employee name">
+        </div>
+        <div class="input-container">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ employee.email }}" placeholder="Insert employee email">
+        </div>
+        <div class="input-container">
+            <label for="job-title">Job Title:</label>
+            <input type="text" id="job-title" name="job" value="{{ employee.job }}" placeholder="Insert employee job title">
+        </div>
+        <div class="input-container">
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" name="salary" value="{{ employee.salary }}" placeholder="Insert employee salary">
+        </div>
+        <div class="input-container">
+            <input type="submit" value="edit employee info" style="background-color: blue; color: white">
+        </div>
+    </form>
